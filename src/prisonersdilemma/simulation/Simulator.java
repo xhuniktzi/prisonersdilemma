@@ -33,18 +33,21 @@ public class Simulator {
     private void printMatchResults(Match match) {
         System.out.println("=== Partida: Strategic_Battle ===");
         System.out.println("Configuración:");
-        System.out.println("  Estrategias: Strategy1 vs Strategy2");
-        System.out.println("  Rondas: 100");
+        System.out.printf("  Estrategias: %s vs %s%n", match.getPlayer1Name(), match.getPlayer2Name());
+        System.out.println("  Rondas: " + match.getRoundResults().size());
         System.out.println("  Scoring:");
         System.out.println("    - Cooperación mutua: 3");
         System.out.println("    - Defección mutua: 1");
         System.out.println("    - Traición: 5/1 (traidor/traicionado)");
         
         System.out.println("Desarrollo:");
-        
+        // Imprimir resultados de las rondas
+        for (String roundResult : match.getRoundResults()) {
+            System.out.println(roundResult);
+        }
         
         System.out.println("Resumen:");
-        System.out.println("  Strategy1:");
+        System.out.printf("  %s:%n", match.getPlayer1Name());
         
         int player1Score = match.getPlayer1Score();
         double player1CoopRate = match.getPlayer1CooperationRate();
@@ -56,7 +59,7 @@ public class Simulator {
         System.out.printf("    - Cooperaciones: %.2f%%%n", player1CoopRate * 100);
         System.out.printf("    - Defecciones: %.2f%%%n", (1 - player1CoopRate) * 100);
         
-        System.out.println("  Strategy2:");
+        System.out.printf("  %s:%n", match.getPlayer2Name());
         System.out.printf("    - Puntuación final: %d%n", player2Score);
         System.out.printf("    - Cooperaciones: %.2f%%%n", player2CoopRate * 100);
         System.out.printf("    - Defecciones: %.2f%%%n", (1 - player2CoopRate) * 100);

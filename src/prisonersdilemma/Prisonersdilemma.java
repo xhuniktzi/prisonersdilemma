@@ -33,7 +33,7 @@ public class Prisonersdilemma {
 
         // Crear estrategias
         Strategy strategy1 = new TitForTatStrategy();
-        Strategy strategy2 = new AlwaysDefectStrategy();
+        Strategy strategy2 = new AlwaysCooperateStrategy();
 
         // Crear partida
         Match match = new Match(strategy1, strategy2, scoringSystem, 100, 42);
