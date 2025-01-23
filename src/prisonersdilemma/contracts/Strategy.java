@@ -5,7 +5,6 @@
 package prisonersdilemma.contracts;
 
 import prisonersdilemma.enums.Action;
-import prisonersdilemma.simulation.Context;
 
 /**
  *
@@ -17,5 +16,5 @@ public interface Strategy {
     Action getInitialAction();
     
     // Decide la acción para una ronda específica basándose en el contexto
-    Action decideAction(Context context);
+    Action decideAction(StrategyContext context);
 }

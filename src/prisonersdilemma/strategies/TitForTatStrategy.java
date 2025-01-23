@@ -5,6 +5,7 @@
 package prisonersdilemma.strategies;
 
 import prisonersdilemma.contracts.Strategy;
+import prisonersdilemma.contracts.StrategyContext;
 import prisonersdilemma.enums.Action;
 import prisonersdilemma.simulation.Context;
 
@@ -20,7 +21,7 @@ public class TitForTatStrategy implements Strategy {
     }
 
     @Override
-    public Action decideAction(Context context) {       
-        return context.getLastOpponentAction();
+    public Action decideAction(StrategyContext context) {       
+        return context.last_move_opponent();
     }
 }

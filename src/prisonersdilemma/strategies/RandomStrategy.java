@@ -5,14 +5,14 @@
 package prisonersdilemma.strategies;
 
 import prisonersdilemma.contracts.Strategy;
+import prisonersdilemma.contracts.StrategyContext;
 import prisonersdilemma.enums.Action;
-import prisonersdilemma.simulation.Context;
 
 /**
  *
  * @author xhuni
  */
-public class RandomStrategy implements Strategy{
+public class RandomStrategy implements Strategy {
 
     @Override
     public Action getInitialAction() {
@@ -20,8 +20,8 @@ public class RandomStrategy implements Strategy{
     }
 
     @Override
-    public Action decideAction(Context context) {
-        if (context.getRandom() < 0.5) return Action.COOPERATE;
+    public Action decideAction(StrategyContext context) {
+        if (context.random() < 0.5) return Action.COOPERATE;
         else return Action.DEFECT;
     }
     

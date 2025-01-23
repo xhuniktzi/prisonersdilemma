@@ -7,6 +7,7 @@ package prisonersdilemma.simulation;
 import java.util.ArrayList;
 import java.util.List;
 import prisonersdilemma.contracts.RandomGenerator;
+import prisonersdilemma.contracts.StrategyContext;
 import prisonersdilemma.enums.Action;
 
 /**
@@ -14,7 +15,7 @@ import prisonersdilemma.enums.Action;
  * @author xhuni
  */
 // Contexto que almacena el estado y proporciona información a las estrategias
-public class Context {
+public class Context implements StrategyContext {
     private final List<Action> selfHistory;
     private final List<Action> opponentHistory;
     private final int totalRounds;
@@ -37,40 +38,67 @@ public class Context {
     public void addOpponentAction(Action action) {
         opponentHistory.add(action);
     }
-
-    public Action getLastSelfAction() {
-        return selfHistory.isEmpty() ? null : selfHistory.get(selfHistory.size() - 1);
-    }
-
-    public Action getLastOpponentAction() {
-        return opponentHistory.isEmpty() ? null : opponentHistory.get(opponentHistory.size() - 1);
-    }
-
-    public int getCurrentRound() {
-        return currentRound;
-    }
-
+    
     public void incrementRound() {
         currentRound++;
     }
 
-    public int getTotalRounds() {
-        return totalRounds;
-    }
-
-    public int getMovesCount(List<Action> history, Action action) {
-        return (int) history.stream().filter(a -> a == action).count();
-    }
-
-    public double getRandom() {
+    @Override
+    public double random() {
         return random.nextDouble();
     }
 
-    public List<Action> getSelfHistory() {
-        return new ArrayList<>(selfHistory);
+    @Override
+    public Action last_move_self() {
+        return selfHistory.get(selfHistory.size() - 1);
     }
 
-    public List<Action> getOpponentHistory() {
-        return new ArrayList<>(opponentHistory);
+    @Override
+    public Action last_move_opponent() {
+        return opponentHistory.get(opponentHistory.size() - 1);
+    }
+
+    @Override
+    public Action get_move_self(int index) {
+        return selfHistory.get(index);
+    }
+
+    @Override
+    public Action get_move_opponent(int index) {
+        return opponentHistory.get(index);
+    }
+
+    @Override
+    public int get_move_count_self(Action act) {
+        return (int) selfHistory.stream().filter(a -> a == act).count();
+    }
+
+    @Override
+    public int get_move_count_opponent(Action act) {
+        return (int) opponentHistory.stream().filter(a -> a == act).count();
+    }
+
+    @Override
+    public List<Action> get_last_n_moves_self(int offset) {
+        return new ArrayList<>(selfHistory.subList(
+                selfHistory.size() - offset, selfHistory.size())
+        );
+    }
+
+    @Override
+    public List<Action> get_last_n_moves_opponent(int offset) {
+        return new ArrayList<>(opponentHistory.subList(
+                opponentHistory.size() - offset, opponentHistory.size())
+        );
+    }
+
+    @Override
+    public int round_number() {
+        return currentRound;
+    }
+
+    @Override
+    public int total_rounds() {
+        return totalRounds;
     }
 }

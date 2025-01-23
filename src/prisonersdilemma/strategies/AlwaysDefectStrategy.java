@@ -5,8 +5,8 @@
 package prisonersdilemma.strategies;
 
 import prisonersdilemma.contracts.Strategy;
+import prisonersdilemma.contracts.StrategyContext;
 import prisonersdilemma.enums.Action;
-import prisonersdilemma.simulation.Context;
 
 /**
  *
@@ -19,7 +19,7 @@ public class AlwaysDefectStrategy implements Strategy {
     }
 
     @Override
-    public Action decideAction(Context context) {
+    public Action decideAction(StrategyContext context) {
         return Action.DEFECT;
     }
 }
