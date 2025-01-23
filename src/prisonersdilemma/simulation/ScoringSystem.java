@@ -39,4 +39,9 @@ public class ScoringSystem {
         }
         throw new IllegalArgumentException("Invalid action combination");
     }
+    
+    public int getMutualCooperationScore() { return mutualCooperationScore; }
+    public int getMutualDefectionScore() { return mutualDefectionScore; }
+    public int getBetrayalRewardScore() { return betrayalRewardScore; }
+    public int getBetrayalPunishmentScore() { return betrayalPunishmentScore; }
 }

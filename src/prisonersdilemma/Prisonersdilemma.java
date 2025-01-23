@@ -10,6 +10,7 @@ import prisonersdilemma.simulation.ScoringSystem;
 import prisonersdilemma.simulation.Simulator;
 import prisonersdilemma.strategies.AlwaysCooperateStrategy;
 import prisonersdilemma.strategies.AlwaysDefectStrategy;
+import prisonersdilemma.strategies.RandomStrategy;
 import prisonersdilemma.strategies.TitForTatStrategy;
 
 /**
@@ -28,15 +29,21 @@ public class Prisonersdilemma {
             3,  // Cooperación mutua 
             1,  // Defección mutua
             5,  // Recompensa por traición
-            1   // Castigo por ser traicionado
+            0   // Castigo por ser traicionado
         );
 
+        // Valores iniciales
+        int rounds = 25;
+        int seed = 42;
+        
         // Crear estrategias
-        Strategy strategy1 = new TitForTatStrategy();
-        Strategy strategy2 = new AlwaysCooperateStrategy();
+        Strategy titfortat = new TitForTatStrategy();
+        Strategy alwayscoop = new AlwaysCooperateStrategy();
+        Strategy alwaysdefect = new AlwaysDefectStrategy();
+        Strategy random = new RandomStrategy();
 
         // Crear partida
-        Match match = new Match(strategy1, strategy2, scoringSystem, 100, 42);
+        Match match = new Match(titfortat, random, scoringSystem, rounds, seed);
 
         // Crear simulador
         Simulator simulator = new Simulator();

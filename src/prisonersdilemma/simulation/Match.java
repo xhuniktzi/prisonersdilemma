@@ -150,4 +150,8 @@ public class Match {
     public String getPlayer2Name() {
         return player2Name;
     }
+    
+    public ScoringSystem getScoringSystem() {
+        return scoringSystem;
+    }
 }

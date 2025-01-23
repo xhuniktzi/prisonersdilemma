@@ -31,14 +31,18 @@ public class Simulator {
     }
 
     private void printMatchResults(Match match) {
-        System.out.println("=== Partida: Strategic_Battle ===");
+        System.out.println("=== Partida ===");
         System.out.println("Configuración:");
         System.out.printf("  Estrategias: %s vs %s%n", match.getPlayer1Name(), match.getPlayer2Name());
         System.out.println("  Rondas: " + match.getRoundResults().size());
         System.out.println("  Scoring:");
-        System.out.println("    - Cooperación mutua: 3");
-        System.out.println("    - Defección mutua: 1");
-        System.out.println("    - Traición: 5/1 (traidor/traicionado)");
+        System.out.printf("    - Cooperación mutua: %d%n",
+                match.getScoringSystem().getMutualCooperationScore());
+        System.out.printf("    - Defección mutua: %d%n",
+                match.getScoringSystem().getMutualDefectionScore());
+        System.out.printf("    - Traición: %d/%d (traidor/traicionado)%n",
+                match.getScoringSystem().getBetrayalRewardScore(),
+                match.getScoringSystem().getBetrayalPunishmentScore());
         
         System.out.println("Desarrollo:");
         // Imprimir resultados de las rondas
