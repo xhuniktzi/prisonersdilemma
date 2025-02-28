@@ -10,6 +10,7 @@ import prisonersdilemma.simulation.ScoringSystem;
 import prisonersdilemma.simulation.Simulator;
 import prisonersdilemma.strategies.AlwaysCooperateStrategy;
 import prisonersdilemma.strategies.AlwaysDefectStrategy;
+import prisonersdilemma.strategies.GraaskampStrategy;
 import prisonersdilemma.strategies.RandomStrategy;
 import prisonersdilemma.strategies.TesterStrategy;
 import prisonersdilemma.strategies.TitForTatStrategy;
@@ -34,18 +35,16 @@ public class Prisonersdilemma {
         );
 
         // Valores iniciales
-        int rounds = 42;
-        int seed = 69;
+        int rounds = 100;
+        int seed = 42;
         
         // Crear estrategias
-        Strategy titfortat = new TitForTatStrategy();
-        Strategy alwayscoop = new AlwaysCooperateStrategy();
-        Strategy alwaysdefect = new AlwaysDefectStrategy();
+        
         Strategy random = new RandomStrategy();
-        Strategy tester = new TesterStrategy();
+        Strategy graaskamp = new GraaskampStrategy();
 
         // Crear partida
-        Match match = new Match(random, tester, scoringSystem, rounds, seed);
+        Match match = new Match(graaskamp, random, scoringSystem, rounds, seed);
 
         // Crear simulador
         Simulator simulator = new Simulator();

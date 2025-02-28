@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/strategies/GraaskampStrategy.java</file>
+            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/contracts/StrategyContext.java</file>
+            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/simulation/DeterministicRandomGenerator.java</file>
             <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/Prisonersdilemma.java</file>
-            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/simulation/Match.java</file>
+            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/contracts/Strategy.java</file>
             <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/strategies/TesterStrategy.java</file>
-            <file>file:/C:/Users/xhuni/Projects/prisonersdilemma/src/prisonersdilemma/strategies/RandomStrategy.java</file>
         </group>
     </open-files>
 </project-private>
